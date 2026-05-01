@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 
-struct Node {
+struct Node{
     int data;
     struct Node *next;
 };
@@ -13,7 +13,7 @@ void inputData();
 void insert_head(int data);
 void traverse();
 
-int main() {
+int main(){
     inputData();
 
     int tambah;
@@ -29,13 +29,13 @@ int main() {
     return 0;
 }
 
-void inputData() {
+void inputData(){
     int n, nilai;
 
     cout << "Masukkan jumlah data: ";
     cin >> n;
 
-    for (int i = 1; i <= n; i++) {
+    for(int i = 1; i <= n; i++){
         cout << "Masukkan data ke " << i << ": ";
         cin >> nilai;
 
@@ -43,29 +43,31 @@ void inputData() {
         nodeBaru->data = nilai;
         nodeBaru->next = NULL;
 
-        if (head == NULL) {
+        if(head == NULL){
             head = nodeBaru;
             tail = nodeBaru;
-        } else {
+        }
+		else{
             tail->next = nodeBaru;
             tail = nodeBaru;
         }
     }
 }
 
-void insert_head(int data) {
+void insert_head(int data){
     Node *nodeBaru = new Node;
     nodeBaru->data = data;
     nodeBaru->next = head;
     head = nodeBaru;
 }
 
-void traverse() {
+void traverse(){
     Node *temp = head;
-    while (temp != NULL) {
+    while(temp != NULL){
         cout << temp->data;
-        if (temp->next != NULL) cout << " -> ";
-        temp = temp->next;
+        if(temp->next != NULL)
+			cout << " -> ";
+	        temp = temp->next;
     }
     cout << " -> NULL" << endl;
 }
